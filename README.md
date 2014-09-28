@@ -48,7 +48,7 @@ end
 ```
 
 Now you've added three environment variables and you're vulnerable to
-developers mistyping URLs.
+developers mistyping URLs. With `IURI` there's a better way.
 
 ``` ruby
 # Development
