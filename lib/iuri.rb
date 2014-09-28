@@ -20,7 +20,7 @@ class IURI
   #   uri2.to_s # => "https://lifx.co/foo/bar"
   #
   # @param options [Hash] Components
-  # @return [MergeableURI] A new instance
+  # @return [URI] A new instance
   def merge(options)
     copy = @uri.dup
     options.each do |key, value|
