@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tate Johnson']
   spec.email         = ['tate@lifx.co']
   spec.summary       = %q{Build complex URIs with chainability and immutability.}
-  spec.description   = %q{Build complex URIs with chainability and immutability.}
-  spec.homepage      = ''
+  spec.description   = %q{Build complex URIs with chainability and immutability. No string concatenation required.}
+  spec.homepage      = 'https://github.com/tatey/iuri'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
