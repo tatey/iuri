@@ -52,24 +52,24 @@ developers mistyping URLs. With `IURI` there's a better way.
 
 ``` ruby
 # Development
-# ENV['BASE_URL'] = 'http://lifx.dev'
+# ENV['API_BASE_URL'] = 'http://lifx.dev'
 #
 # Staging
-# ENV['BASE_URL'] = 'https://user:pass@staging.lifx.co'
+# ENV['API_BASE_URL'] = 'https://user:pass@staging.lifx.co'
 #
 # Production
-# ENV['BASE_URL'] = 'https://lifx.co'
+# ENV['API_BASE_URL'] = 'https://lifx.co'
 
 def devices_url
-  base_url.merge(path: "/api/v1/devices")
+  API_BASE_URL.merge(path: "/api/v1/devices")
 end
 
 def accounts_url
-  base_url.merge(path: "/api/v1/accounts")
+  API_BASE_URL.merge(path: "/api/v1/accounts")
 end
 
-def base_url
-  IURI.parse(ENV['BASE_URL'])
+def API_BASE_URL
+  IURI.parse(ENV['API_BASE_URL'])
 end
 ```
 
