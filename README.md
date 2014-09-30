@@ -77,12 +77,11 @@ end
 
 ## Usage
 
-Parse a base URL and append a path.
+Parse URL and append a path.
 
 ``` ruby
-uri1 = IURI.parse("https://user:secret@lifx.co")
-uri2 = uri1.merge(path: "/api/v1/devices")
-uri2.to_s # => "https://user:secret@lifx.co/api/v1/devices"
+uri = IURI.parse("https://user:secret@lifx.co").merge(path: "/api/v1/devices")
+uri.to_s # => "https://user:secret@lifx.co/api/v1/devices"
 ```
 
 Preferring components to strings gives you greater flexibility over the
@@ -90,21 +89,33 @@ base URL. Here we include a query string at the end of the URL and change
 the path as required.
 
 ``` ruby
-uri1 = IURI.parse("https://lifx.co?api_key=secret")
-uri2 = uri1.merge(path: "/api/v1/devices")
-uri2.to_s # => "https://lifx.co/api/v1/devices?api_key=secret"
+uri = IURI.parse("https://lifx.co?api_key=secret").merge(path: "/api/v1/devices")
+uri.to_s # => "https://lifx.co/api/v1/devices?api_key=secret"
 ```
 
-Supports the same components as `URI`. Here's a sample of the commonly
-used components.
+Queries can also be built with a hash avoiding worrying about formatting
+and escaping. Deep hashes are OK.
 
 ``` ruby
-IURI.parse("https://lifx.co").merge({
-  path: "api/v1/devices"
+uri = IURI.parse("https://lifx.co").merge(params: {api_key: 'secret'})
+uri.to_s # => "https://lifx.co/?api_key=secret"
+```
+
+Supports the same components as `URI`. Here's a sample of commonly used
+components.
+
+``` ruby
+iuri = IURI.parse("https://lifx.co").merge({
+  path: "/api/v1/devices"
   query: "api_key=secret"
   user: "user"
   password: "secret"
 })
+
+iuri.path     # => "/api/v1/devices"
+iuri.query    # => "api_key=secret"
+iuri.user     # => "user"
+iuri.password # => "secret"
 ```
 
 Each `merge` returns a copy guaranteeing that constants and variables
