@@ -15,6 +15,13 @@ class IURITest < Minitest::Test
     end
   end
 
+  def test_setting_params
+    uri1 = IURI.parse('http://lifx.co')
+    uri2 = uri1.merge(params: {a: '1', b: ['1', '2', '3'], c: {d: '1'}})
+
+    assert_equal 'http://lifx.co?a=1&b[]=1&b[]=2&b[]=3&c[d]=1', uri2.to_s
+  end
+
   def test_getting_known_components
     uri = IURI.parse('http://lifx.co/foo/bar?baz=true')
 
