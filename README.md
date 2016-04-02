@@ -1,10 +1,10 @@
-# IURI
-
-[![Build Status](https://travis-ci.org/tatey/iuri.svg?branch=master)](https://travis-ci.org/tatey/iuri)
+# IURI [![Build Status](https://travis-ci.org/tatey/iuri.svg?branch=master)](https://travis-ci.org/tatey/iuri)
 
 Build complex URIs with chainability and immutability. No string
 concatenation required. If you're familiar with `URI` then you already know
 how to use it.
+
+## Why?
 
 First it starts like this.
 
